@@ -1,0 +1,39 @@
+<div style="overflow-x:auto;padding: 25px;">
+  <div>
+    <input class="search" (keyup)="applyFilter()" placeholder="Search by Name" [(ngModel)]="searchvalue" [ngModelOptions]="{standalone: true}">
+    <button (click)="calculateExp()">show Candidate having ex more than 2 year</button>
+    <button (click)="showDepartmentWise()">Department Wise Count</button>
+    <button (click)="removeDevDepartment()">Remove Development Department employees</button>
+    <button (click)="resetData()">Reset Data</button>
+  </div>
+   
+    <div *ngIf="departmentData.length > 0">
+      <table style="width: 40%;"> 
+        <tr>
+          <th>Department</th>
+          <th>Employee Count</th>
+        </tr>
+        <tr *ngFor="let department of departmentData">
+          <td>{{department?.department}}</td>
+          <td>{{department?.employee.length}}</td>
+        </tr>
+      </table>
+    </div>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name <span (click)="sortByName()" class="sort" *ngIf="nameSortAsc"> desc </span><span (click)="sortByName()" class="sort" *ngIf="!nameSortAsc"> asc </span></th>
+        <th>Department</th>
+        <th>Joining Date <span (click)="sortByDate()" class="sort" *ngIf="dateSortAsc"> desc </span><span (click)="sortByDate()" class="sort" *ngIf="!dateSortAsc"> asc </span> </th>
+      </tr>
+      <tr *ngFor="let data of candidate_data">
+        <td>{{data?.id}}</td>
+        <td>{{data?.name}}</td>
+        <td>{{data?.department}}</td>
+        <td>{{data?.joining_date | date:'dd/MM/YYYY'}}</td>
+      </tr>
+      <tr *ngIf="candidate_data.length == 0">
+          <td colspan="6" class="center"> No Data</td>
+      </tr>
+    </table>
+  </div>

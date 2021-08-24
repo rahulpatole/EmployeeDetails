@@ -1,0 +1,33 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  .search{
+    width: 20%;
+    padding: 5px;
+  }
+  .center{
+    text-align: center;
+  }
+  button{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .sort{
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 14px;
+  }    
