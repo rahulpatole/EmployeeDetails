@@ -58,7 +58,7 @@ departmentData: any = [];
           comparison = -1;
         }
         return (
-          (!this.nameSortAsc) ? (comparison * -1) : comparison
+          (!this.dateSortAsc) ? (comparison * -1) : comparison
         );
       });
   }
